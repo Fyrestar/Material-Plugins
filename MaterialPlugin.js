@@ -194,6 +194,14 @@
 
     }
 
+    function invalidate() {
+
+        this.defines = this.defines || {};
+
+        this.defines.VERSION = this.version ++ ;
+        this.needsUpdate = true;
+
+    }
 
 
     for ( let i = 0, l = Materials.length; i < l; i ++ ) {
@@ -222,9 +230,14 @@
             };
             Material.prototype._onBeforeCompile.toString = null;
 
-            Material.prototype.addPlugin = addPlugin;
-            Material.prototype.removePlugin = removePlugin;
-            Material.prototype.hasPlugin = hasPlugin;
+            Object.assign( Material.prototype, {
+                addPlugin,
+                removePlugin,
+                hasPlugin,
+                invalidate,
+
+                version: 1
+            });
 
             const dispose = Material.prototype.disponse;
 
