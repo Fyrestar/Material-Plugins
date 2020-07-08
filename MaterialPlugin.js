@@ -1,4 +1,4 @@
-// Author: Fyrestar https://mevedia.com (https://github.com/Fyrestar/THREE.InfiniteGridHelper)
+// Author: Fyrestar https://mevedia.com (https://github.com/Fyrestar/MaterialPlugin)
 (function() {
 
     let currentObject;
