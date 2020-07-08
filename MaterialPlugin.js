@@ -1,6 +1,5 @@
+// Author: Fyrestar https://mevedia.com (https://github.com/Fyrestar/THREE.InfiniteGridHelper)
 (function() {
-
-    // Author: Fyrestar info@mevedia.com
 
     let currentObject;
 
