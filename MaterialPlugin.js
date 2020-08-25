@@ -287,16 +287,30 @@
             context.geometry = geometry;
             context.group = group;
 
-            if ( !material.program )
+
+
+
+            
+            let shader, program, mat = renderer.properties.get( material );
+            
+            if ( !mat.program )
                 renderer.compile( this, tempCamera, this );
+          
+            if ( mat.shader === undefined ) {
+                shader = mat;
+                program = mat.program;
+            } else {
+                shader = mat.shader;
+                program = shader.program;   
+            }
+            
+          
+          
+            uniforms = shader.uniforms;
 
+            context.gl.useProgram( program.program );
 
-
-            uniforms = renderer.properties.get( material ).shader.uniforms;
-
-            context.gl.useProgram( material.program.program );
-
-            const map = material.program.getUniforms().map;
+            const map = shader.program.getUniforms().map;
 
             for ( let i = 0, l = material.callbacks.length; i < l; i ++ )
                 material.callbacks[i].render( this, map, context );
