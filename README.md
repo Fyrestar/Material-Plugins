@@ -1,5 +1,5 @@
 # MaterialPlugin
-Makes onBeforeCompile of materials chainable rather than just one callback being possible. Enables per-mesh individual uniforms instead just global without core changes. Both features don't violate the API when integrating and fix cases where a material needs multiple patches but onBeforeCompile gets overwritten.
+Makes `onBeforeCompile` of materials chainable rather than just one callback being possible. Enables per-mesh individual uniforms instead just global without core changes. Both features don't violate the API when integrating and fix cases where a material needs multiple patches but onBeforeCompile gets overwritten.
 
 So you can do the following with both callbacks being called before compiling is done:
 
@@ -31,10 +31,10 @@ Call `THREE.MaterialCallback.use();` at the beginning of your app to apply it to
 
 Since `onBeforeRender` is calling a empty function by default anyway this won't add more overhead, being on the prototype just 1 object shared globally.
 
-**If you use post-processing or otherwise call renderer.render() more than once per frame set THREE.MaterialCallback.auto = false; and call THREE.MaterialCallback.frame(); whenever your actual loop starts.**
+**If you use post-processing or otherwise call renderer.render() more than once per frame set `THREE.MaterialCallback.auto = false;` and call `THREE.MaterialCallback.frame();` whenever your actual app loop starts.**
 
 
-For the actual callback where you pass the property stored in a mesh or material instance to the program you create a onBeforeCompile callback with an object instead a function that contains the callbacks.
+For the actual callback where you pass the property stored in a mesh or material instance to the program you create a `onBeforeCompile` callback with an object instead a function that contains the callbacks.
 
  - **frame** is called every frame (notice the bold paragraph above in order for this being every app frame rather than render call)
  - **render** is called before a mesh is rendered, here you update the uniforms
