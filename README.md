@@ -1,4 +1,4 @@
-# MaterialPlugin
+# Chainable onBeforeCompile & Material Plugins
 Makes `onBeforeCompile` of materials chainable rather than just one callback being possible. Enables per-mesh individual uniforms instead just global without core changes. Both features don't violate the API when integrating and fix cases where a material needs multiple patches but `onBeforeCompile` gets overwritten.
 
 So you can do the following with both callbacks being called before compiling is done:
